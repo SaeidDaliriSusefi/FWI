@@ -63,7 +63,7 @@ class TrueModel:
             if self.vp_data is not None:
                 self.vp_data = self.vp_data * 1000
 
-        def plot_model(self, fig_size=(7, 3)):
+        def plot_model(self, fig_size=(5, 3)):
             if self.vp_data is not None:
                 fig, ax = plt.subplots(figsize=fig_size)
                 cax = ax.imshow(self.vp_data, cmap='jet', aspect='auto', origin='upper',
@@ -80,7 +80,7 @@ class TrueModel:
                 plt.subplots_adjust(left=0.08, right=0.92, top=0.95, bottom=0.1)
                 plt.show()
 
-        def run(self, fig_size=(7, 3)):
+        def run(self, fig_size=(5, 3)):
             self.download_and_extract()
             self.read_segy_file()
             self.process_data()
@@ -132,7 +132,7 @@ class TrueModel:
                 self.vp_data = np.rot90(self.vp_data, k=3)
                 self.vp_data = self.vp_data * 1000
 
-        def plot_model(self, fig_size=(7, 3)):
+        def plot_model(self, fig_size=(5, 3)):
             if self.vp_data is not None:
                 fig, ax = plt.subplots(figsize=fig_size)
                 cax = ax.imshow(self.vp_data, cmap='jet', aspect='auto', origin='upper',
@@ -149,7 +149,7 @@ class TrueModel:
                 plt.subplots_adjust(left=0.08, right=0.92, top=0.95, bottom=0.1)
                 plt.show()
 
-        def run(self, fig_size=(7, 3)):
+        def run(self, fig_size=(5, 3)):
             self.download_and_extract()
             self.read_segy_file()
             self.process_data()
@@ -199,7 +199,7 @@ class TrueModel:
             if self.rho_data is not None:
                 self.rho_data = self.rho_data * 1000
 
-        def plot_model(self, fig_size=(7, 3)):
+        def plot_model(self, fig_size=(5, 3)):
             if self.rho_data is not None:
                 fig, ax = plt.subplots(figsize=fig_size)
                 cax = ax.imshow(self.rho_data, cmap='jet', aspect='auto', origin='upper',
@@ -216,7 +216,7 @@ class TrueModel:
                 plt.subplots_adjust(left=0.08, right=0.92, top=0.95, bottom=0.1)
                 plt.show()
 
-        def run(self, fig_size=(7, 3)):
+        def run(self, fig_size=(5, 3)):
             self.download_and_extract()
             self.read_segy_file()
             self.process_data()
@@ -266,7 +266,7 @@ class TrueModel:
             if self.rho_data is not None:
                 self.rho_data = self.rho_data * 1000
 
-        def plot_model(self, fig_size=(7, 3)):
+        def plot_model(self, fig_size=(5, 3)):
             if self.rho_data is not None:
                 fig, ax = plt.subplots(figsize=fig_size)
                 cax = ax.imshow(self.rho_data, cmap='jet', aspect='auto', origin='upper',
@@ -283,7 +283,7 @@ class TrueModel:
                 plt.subplots_adjust(left=0.08, right=0.92, top=0.95, bottom=0.1)
                 plt.show()
 
-        def run(self, fig_size=(7, 3)):
+        def run(self, fig_size=(5, 3)):
             self.download_and_extract()
             self.read_segy_file()
             self.process_data()
