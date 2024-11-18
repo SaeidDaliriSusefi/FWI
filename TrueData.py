@@ -254,8 +254,10 @@ class TrueModel:
                 self.rho_data = None
 
         def process_data(self):
-            if self.rho_data is not None:
-                self.rho_data = self.rho_data * 1000
+            if self.vp_data is not None:
+                self.vp_data = np.flipud(self.vp_data)
+                self.vp_data = np.rot90(self.vp_data, k=3)
+                self.vp_data = self.vp_data * 1000
 
         def plot_model(self, fig_size=(6, 3)):
             if self.rho_data is not None:
