@@ -13,8 +13,10 @@ class PlotModel:
             # Check if data is velocity or density and adjust accordingly
             if 'density' in self.plot_title.lower():
                 data = self.vp_data  # Assuming density data is already in kg/m³
+                colorbar_label = 'Density (kg/m³)'
             else:
                 data = self.vp_data / 1000  # Convert to km/s for velocity model (assuming input data is in m/s)
+                colorbar_label = 'Velocity (km/s)'
 
             fig, axs = plt.subplots(2, 2, figsize=fig_size)
 
@@ -22,7 +24,7 @@ class PlotModel:
             cax1 = axs[0, 0].imshow(data, cmap='jet', aspect='auto', origin='upper',
                                     extent=[0, self.max_distance_km, self.max_depth_km, 0])
             cbar1 = fig.colorbar(cax1, ax=axs[0, 0], orientation='vertical', pad=0.02)
-            cbar1.set_label('Velocity (km/s) or Density (kg/m³)', fontsize=10)
+            cbar1.set_label(colorbar_label, fontsize=10)
             cbar1.formatter.set_scientific(False)
             cbar1.update_ticks()
 
