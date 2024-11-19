@@ -52,7 +52,7 @@ class TrueModel:
 
         def process_data(self):
             if self.vp_data is not None:
-                self.vp_data = self.vp_data * 1000
+                self.vp_data = self.vp_data 
 
         def plot_model(self, fig_size=(6, 3)):
             if self.vp_data is not None:
