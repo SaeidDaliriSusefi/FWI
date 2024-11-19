@@ -62,7 +62,7 @@ class TrueModel:
                 cax = ax.imshow(vp_km_s, cmap='jet', aspect='auto', origin='upper',
                                 extent=[0, self.max_distance_km, self.max_depth_km, 0])
                 cbar = fig.colorbar(cax, ax=ax, orientation='vertical', pad=0.02)
-                cbar.set_label('P-wave Velocity (km/s)', fontsize=12)
+                cbar.set_label(' Velocity (km/s)', fontsize=10)
                 cbar.formatter.set_scientific(False)
                 cbar.update_ticks()
 
@@ -129,7 +129,7 @@ class TrueModel:
                 cax = ax.imshow(self.rho_data, cmap='jet', aspect='auto', origin='upper',
                                 extent=[0, self.max_distance_km, self.max_depth_km, 0])
                 cbar = fig.colorbar(cax, ax=ax, orientation='vertical', pad=0.02)
-                cbar.set_label('Density (kg/m³)', fontsize=12)  # Updated label
+                cbar.set_label('Density (kg/m³)', fontsize=10)  # Updated label
                 cbar.formatter.set_scientific(False)
                 cbar.update_ticks()
 
@@ -200,7 +200,7 @@ class TrueModel:
                 cax = ax.imshow(vp_km_s, cmap='jet', aspect='auto', origin='upper',
                                 extent=[0, self.max_distance_km, self.max_depth_km, 0])
                 cbar = fig.colorbar(cax, ax=ax, orientation='vertical', pad=0.02)
-                cbar.set_label('P-wave Velocity (km/s)', fontsize=12)
+                cbar.set_label(' Velocity (km/s)', fontsize=10)
                 cbar.formatter.set_scientific(False)
                 cbar.update_ticks()
 
@@ -269,7 +269,7 @@ class TrueModel:
                 cax = ax.imshow(self.rho_data, cmap='jet', aspect='auto', origin='upper',
                                 extent=[0, self.max_distance_km, self.max_depth_km, 0])
                 cbar = fig.colorbar(cax, ax=ax, orientation='vertical', pad=0.02)
-                cbar.set_label('Density (kg/m³)', fontsize=12)  # Updated label
+                cbar.set_label('Density (kg/m³)', fontsize=10)  # Updated label
                 cbar.formatter.set_scientific(False)
                 cbar.update_ticks()
 
