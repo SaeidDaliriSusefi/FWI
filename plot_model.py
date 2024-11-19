@@ -32,10 +32,10 @@ class PlotModel:
             axs[0, 0].set_xlabel('Distance (Km)', fontsize=12, labelpad=10)
             axs[0, 0].set_ylabel('Depth (Km)', fontsize=12, labelpad=10)
 
-            # Leave the other subplots empty
-            axs[0, 1].axis('off')
-            axs[1, 0].axis('off')
-            axs[1, 1].axis('off')
+            # Plotting empty subplots with titles
+            axs[0, 1].set_title('Subplot 2 (Empty)', fontsize=14)
+            axs[1, 0].set_title('Subplot 3 (Empty)', fontsize=14)
+            axs[1, 1].set_title('Subplot 4 (Empty)', fontsize=14)
 
             # Adjust layout and show plot
             plt.tight_layout()
