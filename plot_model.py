@@ -8,7 +8,7 @@ class PlotModel:
         self.max_depth_km = max_depth_km
         self.plot_title = plot_title
 
-    def plot_model_with_subplots(self, fig_size=(10, 8), use_existing_figure=False, axs=None):
+    def plot_model_with_subplots(self, fig_size=(10, 8)):
         if self.vp_data is not None:
             # Check if data is velocity or density and adjust accordingly
             if 'density' in self.plot_title.lower():
@@ -18,12 +18,10 @@ class PlotModel:
                 data = self.vp_data / 1000  # Convert to km/s for velocity model (assuming input data is in m/s)
                 colorbar_label = 'Velocity (km/s)'
 
-            if not use_existing_figure or axs is None:
-                fig, axs = plt.subplots(2, 2, figsize=fig_size)
-            else:
-                fig = plt.gcf()
+            # Create a figure with subplots
+            fig, axs = plt.subplots(2, 2, figsize=fig_size)
 
-            # Plotting the selected model in the first available subplot
+            # Plotting the selected model in the first subplot
             cax1 = axs[0, 0].imshow(data, cmap='jet', aspect='auto', origin='upper',
                                     extent=[0, self.max_distance_km, self.max_depth_km, 0])
             cbar1 = fig.colorbar(cax1, ax=axs[0, 0], orientation='vertical', pad=0.02)
