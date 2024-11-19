@@ -2,11 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class PlotModel:
-    def __init__(self, vp_data, max_distance_km, max_depth_km, title="Selected Model Plot"):
+    def __init__(self, vp_data, max_distance_km, max_depth_km, plot_title="Selected Model Plot"):
         self.vp_data = vp_data
         self.max_distance_km = max_distance_km
         self.max_depth_km = max_depth_km
-        self.title = title
+        self.plot_title = plot_title
 
     def plot_model_with_subplots(self, fig_size=(10, 8)):
         if self.vp_data is not None:
@@ -23,7 +23,7 @@ class PlotModel:
             cbar1.formatter.set_scientific(False)
             cbar1.update_ticks()
 
-            axs[0, 0].set_title(self.title, fontsize=14, loc='center', pad=10)
+            axs[0, 0].set_title(self.plot_title, fontsize=14, loc='center', pad=10)
             axs[0, 0].set_xlabel('Distance (Km)', fontsize=12, labelpad=10)
             axs[0, 0].set_ylabel('Depth (Km)', fontsize=12, labelpad=10)
 
