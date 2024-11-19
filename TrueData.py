@@ -121,7 +121,7 @@ class TrueModel:
 
         def process_data(self):
             if self.rho_data is not None:
-                self.rho_data = self.rho_data * 1000
+                self.rho_data = self.rho_data 
 
         def plot_model(self, fig_size=(6, 3)):
             if self.rho_data is not None:
