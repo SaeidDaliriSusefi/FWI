@@ -10,16 +10,19 @@ class PlotModel:
 
     def plot_model_with_subplots(self, fig_size=(10, 8)):
         if self.vp_data is not None:
-            # Convert to km/s for velocity model (assuming input data is in m/s)
-            vp_km_s = self.vp_data / 1000
+            # Check if data is velocity or density and adjust accordingly
+            if 'density' in self.plot_title.lower():
+                data = self.vp_data  # Assuming density data is already in kg/m³
+            else:
+                data = self.vp_data / 1000  # Convert to km/s for velocity model (assuming input data is in m/s)
 
             fig, axs = plt.subplots(2, 2, figsize=fig_size)
 
             # Plotting the selected model in the first subplot
-            cax1 = axs[0, 0].imshow(vp_km_s, cmap='jet', aspect='auto', origin='upper',
+            cax1 = axs[0, 0].imshow(data, cmap='jet', aspect='auto', origin='upper',
                                     extent=[0, self.max_distance_km, self.max_depth_km, 0])
             cbar1 = fig.colorbar(cax1, ax=axs[0, 0], orientation='vertical', pad=0.02)
-            cbar1.set_label('Velocity/Density (km/s or kg/m³)', fontsize=10)
+            cbar1.set_label('Velocity (km/s) or Density (kg/m³)', fontsize=10)
             cbar1.formatter.set_scientific(False)
             cbar1.update_ticks()
 
