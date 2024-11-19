@@ -56,7 +56,7 @@ class TrueModel:
 
         def plot_model(self, fig_size=(6, 3)):
             if self.vp_data is not None:
-                vp_km_s = self.vp_data / 1000  # Convert to km/s
+                vp_km_s = self.vp_data / 1000000  # Convert to km/s
 
                 fig, ax = plt.subplots(figsize=fig_size)
                 cax = ax.imshow(vp_km_s, cmap='jet', aspect='auto', origin='upper',
