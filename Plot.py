@@ -12,11 +12,52 @@ class PlotModel:
     def is_data_valid(self):
         return self.data is not None and self.data.size > 0
 
-# Subclass for True Model Plotting
+# Subclass for plotting each model type separately
 class TrueModelPlot(PlotModel):
-    def plot_model(self, title, cmap='viridis', save_as=None):
+    
+    def plot_marmousi1_velocity(self, cmap='viridis', save_as=None):
         """
-        Plots the model data as a 2D heatmap.
+        Plots the Marmousi1 Velocity Model as a 2D heatmap.
+
+        Parameters:
+            cmap (str): The colormap for the plot.
+            save_as (str): Optional. The filename to save the plot.
+        """
+        self._plot_model(title="Marmousi1 Velocity Model", cmap=cmap, save_as=save_as)
+
+    def plot_marmousi1_density(self, cmap='plasma', save_as=None):
+        """
+        Plots the Marmousi1 Density Model as a 2D heatmap.
+
+        Parameters:
+            cmap (str): The colormap for the plot.
+            save_as (str): Optional. The filename to save the plot.
+        """
+        self._plot_model(title="Marmousi1 Density Model", cmap=cmap, save_as=save_as)
+
+    def plot_marmousi2_velocity(self, cmap='inferno', save_as=None):
+        """
+        Plots the Marmousi2 Velocity Model as a 2D heatmap.
+
+        Parameters:
+            cmap (str): The colormap for the plot.
+            save_as (str): Optional. The filename to save the plot.
+        """
+        self._plot_model(title="Marmousi2 Velocity Model", cmap=cmap, save_as=save_as)
+
+    def plot_marmousi2_density(self, cmap='magma', save_as=None):
+        """
+        Plots the Marmousi2 Density Model as a 2D heatmap.
+
+        Parameters:
+            cmap (str): The colormap for the plot.
+            save_as (str): Optional. The filename to save the plot.
+        """
+        self._plot_model(title="Marmousi2 Density Model", cmap=cmap, save_as=save_as)
+
+    def _plot_model(self, title, cmap='viridis', save_as=None):
+        """
+        Generic method to plot model data.
 
         Parameters:
             title (str): The title of the plot.
@@ -38,7 +79,7 @@ class TrueModelPlot(PlotModel):
             plt.savefig(save_as, dpi=300, bbox_inches='tight')
         
         plt.show()
-    
+
     def plot_model_with_subplots(self, other_data=None):
         """
         Creates a 2x2 subplot with the true model plotted in the first subplot.
@@ -86,31 +127,3 @@ class TrueModelPlot(PlotModel):
 
         plt.tight_layout()
         plt.show()
-
-# Additional subclasses for other model types
-class VelocityModelPlot(PlotModel):
-    def __init__(self, data=None):
-        super().__init__(data)
-
-class DensityModelPlot(PlotModel):
-    def __init__(self, data=None):
-        super().__init__(data)
-
-class CustomModelPlot(PlotModel):
-    def __init__(self, data=None):
-        super().__init__(data)
-
-# Usage example
-if __name__ == "__main__":
-    # Dummy data for demonstration
-    data = np.random.rand(100, 200)
-
-    # TrueModelPlot instance
-    true_model_plot = TrueModelPlot(data)
-    
-    # Plotting the True Model as a standalone plot
-    true_model_plot.plot_model(title="True Model Plot", cmap='seismic')
-
-    # Plotting with subplots (2x2 layout)
-    additional_data = [np.random.rand(100, 200), np.random.rand(100, 200), None]  # Adding dummy data
-    true_model_plot.plot_model_with_subplots(other_data=additional_data)
